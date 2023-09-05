@@ -306,20 +306,30 @@ public class TerminalFragment extends Fragment implements SerialInputOutputManag
         SpannableStringBuilder spn = new SpannableStringBuilder();
         //spn.append("receive " + data.length + " bytes\n");
         //no muestra los datos del tiempo y otros
-        if(data.length > 0) {
+//        if(data.length > 0) {
+//            try {
+//                String text = new String(data, "UTF-8");
+//                // Update the text content in the TextView
+//                receivedTextBuilder.setLength(0); // Clear the previous content
+//                receivedTextBuilder.append(text);
+//                receiveText.setText(receivedTextBuilder.toString());
+//            } catch (UnsupportedEncodingException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+        if (data.length > 0) {
             try {
                 String text = new String(data, "UTF-8");
-                // Update the text content in the TextView
-                receivedTextBuilder.setLength(0); // Clear the previous content
-                receivedTextBuilder.append(text);
-                receiveText.setText(receivedTextBuilder.toString());
+                receiveText.append(text);
             } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+                // Handle the encoding exception if needed
             }
         }
             //spn.append(HexDump.dumpHexString(data));
         //receiveText.append(spn);
     }
+
+
 
     void status(String str) {
         SpannableStringBuilder spn = new SpannableStringBuilder(str+'\n');

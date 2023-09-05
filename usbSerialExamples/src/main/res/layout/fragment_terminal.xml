@@ -115,7 +115,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:inputType="text|textNoSuggestions"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:gravity="right" />
 
         <ImageButton
             android:id="@+id/send_btn"
